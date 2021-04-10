@@ -3,7 +3,7 @@
     <section class="py-5">
       <div class="mb-4 d-flex justify-content-between align-items-center">
         <h2>Актуальное</h2>
-        <button class="btn btn-sm btn-primary">Все статьи</button>
+        <button @click.prevent="openAllPosts()" class="btn btn-sm btn-primary">Все статьи</button>
       </div>
 
       <div class="row">
@@ -44,6 +44,10 @@ export default {
     this.getNewPosts();
   },
   methods:{
+    openAllPosts()
+    {
+      this.$router.push({ name: 'all' });
+    },
     getNewPosts()
     {
       this.newPosts = [];
@@ -55,8 +59,7 @@ export default {
       console.log(this.newPosts);
     },
     getRandomPost(){
-
-    }
+    },
   }
 }
 </script>
