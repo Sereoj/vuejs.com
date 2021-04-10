@@ -11,6 +11,7 @@
           <input
             type="text"
             class="form-control"
+            v-model="newPost.name"
             placeholder="Придумайте название статьи"
           />
         </div>
@@ -18,13 +19,14 @@
           <label>Описание</label>
           <textarea
             class="form-control"
+            v-model="newPost.description"
             placeholder="Напишите описание статьи"
             rows="5"
           ></textarea>
         </div>
         <div class="mb-4">
           <label>Изображение</label>
-          <input type="file" class="form-control" />
+          <input type="file" class="form-control"/>
 
           <img
             src="assets/images/placeholder-blue.png"
@@ -33,7 +35,7 @@
           />
         </div>
 
-        <button class="btn btn-success">Добавить статью</button>
+        <button class="btn btn-success" @click.prevent="SendNewPost()">Добавить статью</button>
       </form>
     </section>
   </div>
@@ -44,23 +46,24 @@ export default {
   data()
   {
     return {
-      newPosts:{}
+      articles,
+      newPost:{
+        id: null,
+        name: null,
+        description: null,
+        image: 'assets/images/placeholder-blue.png',
+        date: '2021-04-10 20:00:00'
+      }
     }
   },
-  mounted(){
-    this.getNewPosts();
-  },
   methods:{
-    getNewPosts()
+    SendNewPost()
     {
-      var count = articles.length - 1;
-      this.newPosts[0] = articles[count];
-      this.newPosts[1] = articles[count - 1];
-      this.newPosts[2] = articles[count - 2];
+      var counter = articles.length + 1;
+      this.newPost.id = counter ++;
+      this.articles.push(this.newPost);
 
-      console.log(this.newPosts);
-    },
-    getRandomPost(){
+      console.log(this.articles);
     }
   }
 }

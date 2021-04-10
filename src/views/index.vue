@@ -20,7 +20,7 @@
 
 
       <a href="#" class="card bg-dark text-white">
-        <img class="card-img" src="assets/images/placeholder-blue.png" alt="placeholder">
+        <img class="card-img" :src="getImgUrl('assets/images/placeholder-blue.png')" alt="placeholder">
         <div class="card-img-overlay">
           <h5 class="card-title">Название статьи</h5>
         </div>
@@ -60,6 +60,13 @@ export default {
     },
     getRandomPost(){
     },
+    getImgUrl(pic) {
+      /**
+       * Костыль =D
+       * https://stackoverflow.com/questions/40491506/vue-js-dynamic-images-not-working
+       */
+      return require("../" + pic);
+    }
   }
 }
 </script>

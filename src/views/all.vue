@@ -6,7 +6,7 @@
       </div>
 
       <div class="row">
-        <div v-for="article in articles" v-bind:key="article" class="col-3">
+        <div v-for="article in articles" v-bind:key="article.id" class="col-3">
           <Card :item="article"></Card>
         </div>
       </div>
