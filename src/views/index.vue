@@ -7,7 +7,7 @@
       </div>
 
       <div class="row">
-          <div v-for="post in newPosts" :key="post">
+          <div v-for="post in newPosts" :key="post.id" class="col-3">
             <Card :item="post"></Card>
           </div>
       </div>
