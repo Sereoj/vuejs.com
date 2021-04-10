@@ -7,7 +7,7 @@
       </div>
 
       <div class="row">
-          <div v-for="post in newPosts" :key="post.id" class="col-3">
+          <div v-for="post in newPosts" v-bind:key="post" class="col-3">
             <Card :item="post"></Card>
           </div>
       </div>
@@ -37,8 +37,7 @@ export default {
   data()
   {
     return {
-      newPosts:{
-      }
+      newPosts: null
     }
   },
   mounted(){
@@ -47,6 +46,7 @@ export default {
   methods:{
     getNewPosts()
     {
+      this.newPosts = [];
       var count = articles.length - 1;
       this.newPosts[0] = articles[count];
       this.newPosts[1] = articles[count - 1];
