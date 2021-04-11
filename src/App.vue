@@ -7,7 +7,7 @@
         <div class="nav" id="nav">
           <router-link class="nav-link text-white" to="/">Главная</router-link>
           <router-link class="nav-link text-white" to="/all">Все статьи</router-link>
-          <router-link class="nav-link text-white" to="/edit">Управление статьями</router-link>
+          <router-link class="nav-link text-white" to="/manage">Управление статьями</router-link>
         </div>
       </div>
   </header>

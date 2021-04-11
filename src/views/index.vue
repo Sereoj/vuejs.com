@@ -7,7 +7,7 @@
       </div>
 
       <div class="row">
-          <div v-for="post in newPosts" v-bind:key="post" class="col-3">
+          <div v-for="post in newPosts" v-bind:key="post.id" class="col-3">
             <Card :item="post"></Card>
           </div>
       </div>
@@ -19,7 +19,7 @@
       </div>
 
 
-      <a href="#" class="card bg-dark text-white">
+      <a href="#" @click.prevent="getRandomPost()" class="card bg-dark text-white">
         <img class="card-img" :src="getImgUrl('assets/images/placeholder-blue.png')" alt="placeholder">
         <div class="card-img-overlay">
           <h5 class="card-title">Название статьи</h5>
@@ -59,6 +59,8 @@ export default {
       console.log(this.newPosts);
     },
     getRandomPost(){
+      var PostId = 1;
+      this.$router.push({ path: `/post/${PostId}`, params:{id: PostId, article: articles[PostId]} });
     },
     getImgUrl(pic) {
       /**

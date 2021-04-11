@@ -25,3 +25,38 @@
     </section>
   </div>
 </template>
+
+<script>
+import {articles} from '@/assets/js/data'
+export default {
+  data()
+  {
+    return {
+      articles,
+      post: null,
+      error: null
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  watch: {
+    // при изменениях маршрута запрашиваем данные снова
+    $route: 'fetchData'
+  },
+  methods:{
+    fetchData()
+    {
+      var postid = this.$route.params.id;
+      console.log(postid);
+    },
+    getImgUrl(pic) {
+      /**
+       * Костыль =D
+       * https://stackoverflow.com/questions/40491506/vue-js-dynamic-images-not-working
+       */
+      return require("../" + pic);
+    }
+  }
+}
+</script>
